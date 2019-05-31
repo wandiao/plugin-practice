@@ -4,7 +4,6 @@ import './App.css';
 import createStore from './redux/createStore';
 import counter from './reducer/counter';
 import Provider from './react-redux/components/Provider';
-import connect from './react-redux/connect/connect'
 import Test from './Test';
 
 const store = createStore(counter, {

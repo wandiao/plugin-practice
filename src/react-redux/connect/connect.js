@@ -1,21 +1,38 @@
-import React, { Component } from 'react';
-import MainContext from '../components/Context';
+import connectAdvanced from '../components/connectAdvanced'
+import defaultSelectorFactory from './selectorFactory'
+import defaultMapStateToPropsFactories from './mapStateToProps'
 
-export default function connect(mapState, mapDispatch) {
-  return function wrapWithConnect(WrappedComponent) {
-    return class extends Component {
-      constructor(props) {
-        super(props)
-        this.state = {}
-      }
-      static contextType = MainContext
-      render() {
-        const state = this.context.store.store.getState()
-        const dispatch = this.context.store.store.dispatch
-        return (
-          <WrappedComponent dispatch={dispatch} {...state} {...this.props}></WrappedComponent>
-        )
-      }
-    }
+
+function match(arg, factories, name) {
+  for (let i = factories.length - 1; i >= 0; i--) {
+    const result = factories[i](arg)
+    if (result) return result
+  }
+
+  return (dispatch, options) => {
+    throw new Error(
+      `Invalid value of type ${typeof arg} for ${name} argument when connecting component ${
+        options.wrappedComponentName
+      }.`
+    )
   }
 }
+
+export function createConnect({
+  connectHOC = connectAdvanced,
+  selectorFactory = defaultSelectorFactory,
+  mapStateToPropsFactories = defaultMapStateToPropsFactories
+  
+} = {}) {
+  return function connect(mapStateToProps = null, mapDispatchToProps, mergeProps, options = {}) {
+    return connectHOC(selectorFactory, {
+      methodName: 'connect',
+      initMapStateToProps: () => {},
+      getDisplayName: name => `Connect(${name})`,
+      initMapDispatchToProps: () => {},
+      initMergeProps: () => {}
+    })
+  }
+}
+
+export default createConnect()
