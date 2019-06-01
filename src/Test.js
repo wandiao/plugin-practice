@@ -33,6 +33,10 @@ class Test extends Component {
     )
   }
 }
+function mapState(state) {
+  console.log(state)
+  return state
+}
 
-export default connect()(Test)
+export default connect(mapState)(Test)
 

@@ -1,5 +1,6 @@
 import React, { useMemo, useContext, useLayoutEffect, useEffect }  from 'react'
 import MainContext from './Context';
+import Subscription from '../utils/Subscription'
 
 const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' &&
@@ -11,6 +12,7 @@ const useIsomorphicLayoutEffect =
 export default function connectAdvanced(selectorFactory, {
   context = MainContext,
   getDisplayName = name => `ConnectAdvanced(${name})`,
+  methodName = 'connectAdvanced',
   ...connectOptions
 } = {}) {
   const Context = context
@@ -45,12 +47,26 @@ export default function connectAdvanced(selectorFactory, {
 
         const didStoreComeFromProps = Boolean(props.store)
         const didStoreComeFromContext = Boolean(contextValue) && Boolean(contextValue.store)
-        console.log(didStoreComeFromProps, didStoreComeFromContext)
         const store = props.store || contextValue.store
 
         const childPropsSelector = useMemo(() => {
           return createChildSelector(store)
         }, [store])
+
+        const [subscription, notifyNestedSubs] = useMemo(() => {
+          const subscription = new Subscription(
+            store,
+            didStoreComeFromProps ? null : contextValue.subscription
+          )
+          const notifyNestedSubs = subscription.notifyNestedSubs.bind(
+            subscription
+          )
+  
+          return [subscription, notifyNestedSubs]
+        }, [store, didStoreComeFromProps, contextValue])
+
+
+        
 
         const actualChildProps = usePureOnlyMemo(() => {
           return childPropsSelector(store.getState(), wrapperProps)

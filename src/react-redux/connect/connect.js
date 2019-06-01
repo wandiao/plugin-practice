@@ -1,6 +1,8 @@
 import connectAdvanced from '../components/connectAdvanced'
 import defaultSelectorFactory from './selectorFactory'
 import defaultMapStateToPropsFactories from './mapStateToProps'
+import defaultMapDispatchToPropsFactories from './mapDispatchToProps'
+import defaultMergePropsFactories from './mergeProps'
 
 
 function match(arg, factories, name) {
@@ -21,16 +23,33 @@ function match(arg, factories, name) {
 export function createConnect({
   connectHOC = connectAdvanced,
   selectorFactory = defaultSelectorFactory,
-  mapStateToPropsFactories = defaultMapStateToPropsFactories
-  
+  mapDispatchToPropsFactories = defaultMapDispatchToPropsFactories,
+  mapStateToPropsFactories = defaultMapStateToPropsFactories,
+  mergePropsFactories = defaultMergePropsFactories
 } = {}) {
-  return function connect(mapStateToProps = null, mapDispatchToProps, mergeProps, options = {}) {
+  return function connect(mapStateToProps = null, mapDispatchToProps, mergeProps, options = {
+    pure: true,
+  }) {
+    const initMapStateToProps = match(
+      mapStateToProps,
+      mapStateToPropsFactories,
+      'mapStateToProps'
+    )
+
+    const initMapDispatchToProps = match(
+      mapDispatchToProps,
+      mapDispatchToPropsFactories,
+      'mapDispatchToProps'
+    )
+
+    const initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps')
     return connectHOC(selectorFactory, {
       methodName: 'connect',
-      initMapStateToProps: () => {},
+      initMapStateToProps,
       getDisplayName: name => `Connect(${name})`,
       initMapDispatchToProps: () => {},
-      initMergeProps: () => {}
+      initMergeProps,
+      initMapDispatchToProps,
     })
   }
 }
