@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import connect from './react-redux/connect/connect'
+// import connect from './react-redux/connect/connect'
 
 class Test2 extends Component {
   handler = () => {
@@ -18,5 +18,5 @@ class Test2 extends Component {
   }
 }
 
-export default connect()(Test2)
+export default Test2
 

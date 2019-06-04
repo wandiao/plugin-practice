@@ -25,6 +25,15 @@ class Provider extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.store !== prevProps.store) {
+      this.state.subscription.tryUnsubscribe()
+      const subscription = new Subscription(this.props.store)
+      subscription.onStateChange = this.notifySubscribers
+      this.setState({ store: this.props.store, subscription })
+    }
+  }
+
   componentWillUnmount() {
     this.state.subscription.tryUnsubscribe()
   }

@@ -6,12 +6,17 @@ import counter from './reducer/counter';
 import Provider from './react-redux/components/Provider';
 import Test from './Test';
 
-const store = createStore(counter, {
+ const store = createStore(counter, {
   count: 2
 })
 
 
+
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this._ref = React.createRef();
+  }
   render() {
     return (
       <Provider store={store}>

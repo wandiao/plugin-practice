@@ -1,8 +1,8 @@
-import connectAdvanced from '../components/connectAdvanced'
-import defaultSelectorFactory from './selectorFactory'
-import defaultMapStateToPropsFactories from './mapStateToProps'
-import defaultMapDispatchToPropsFactories from './mapDispatchToProps'
-import defaultMergePropsFactories from './mergeProps'
+import connectAdvanced from './connectAdvanced'
+import selectorFactory from './selectorFactory'
+import mapStateToPropsFactories from './mapStateToProps'
+import mapDispatchToPropsFactories from './mapDispatchToProps'
+import mergePropsFactories from './mergeProps'
 
 
 function match(arg, factories, name) {
@@ -20,38 +20,36 @@ function match(arg, factories, name) {
   }
 }
 
-export function createConnect({
-  connectHOC = connectAdvanced,
-  selectorFactory = defaultSelectorFactory,
-  mapDispatchToPropsFactories = defaultMapDispatchToPropsFactories,
-  mapStateToPropsFactories = defaultMapStateToPropsFactories,
-  mergePropsFactories = defaultMergePropsFactories
+
+export default function connect(mapStateToProps, mapDispatchToProps, mergeProps, {
+  pure = true,
+  ...extraOptions
 } = {}) {
-  return function connect(mapStateToProps = null, mapDispatchToProps, mergeProps, options = {
-    pure: true,
-  }) {
-    const initMapStateToProps = match(
-      mapStateToProps,
-      mapStateToPropsFactories,
-      'mapStateToProps'
-    )
 
-    const initMapDispatchToProps = match(
-      mapDispatchToProps,
-      mapDispatchToPropsFactories,
-      'mapDispatchToProps'
-    )
+  // wrapMapToProps.js -> initProxySelector 
+  const initMapStateToProps = match(
+    mapStateToProps,
+    mapStateToPropsFactories,
+    'mapStateToProps'
+  )
 
-    const initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps')
-    return connectHOC(selectorFactory, {
-      methodName: 'connect',
-      initMapStateToProps,
-      getDisplayName: name => `Connect(${name})`,
-      initMapDispatchToProps: () => {},
-      initMergeProps,
-      initMapDispatchToProps,
-    })
-  }
+  const initMapDispatchToProps = match(
+    mapDispatchToProps,
+    mapDispatchToPropsFactories,
+    'mapDispatchToProps'
+  )
+  
+  const initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps')
+  
+  return connectAdvanced(selectorFactory, {
+    methodName: 'connect',
+    getDisplayName: name => `Connect(${name})`,
+    // 如果定义了mapStateToProps即监听store变化
+    shouldHandleStateChanges: Boolean(mapStateToProps),
+    initMapStateToProps,
+    initMergeProps,
+    initMapDispatchToProps,
+    pure,
+    ...extraOptions,
+  })
 }
-
-export default createConnect()

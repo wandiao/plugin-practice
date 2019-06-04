@@ -11,7 +11,6 @@ class Test extends Component {
   }
   handler = () => {
     const { dispatch } = this.props
-    console.log(1)
     dispatch({
       type: 'INCREASE'
     })

@@ -41,9 +41,6 @@ export function wrapMapToPropsFunc(mapToProps, methodName) {
         props = proxy(stateOrDispatch, ownProps)
       }
 
-      // if (process.env.NODE_ENV !== 'production')
-      //   verifyPlainObject(props, displayName, methodName)
-
       return props
     }
 
