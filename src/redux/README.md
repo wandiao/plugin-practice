@@ -11,10 +11,10 @@
 ### 用法
 ```js
 /**
- * action
+ * actions/count.js
  */
-const ADD = 'ADD' // 增加
-const SUBTRACT = 'SUBTRACT' // 减少
+export const ADD = 'ADD' // 增加
+export const SUBTRACT = 'SUBTRACT' // 减少
 
 // action对象
 // {
@@ -23,14 +23,14 @@ const SUBTRACT = 'SUBTRACT' // 减少
 // }
 
 // 使用Action创建函数，动态创建action
-const add(num) {
+export function add(num) {
   return {
     type: ADD,
     num,
   }
 }
 
-const subtract(num) {
+export function subtract(num) {
   return {
     type: SUBTRACT,
     num,
@@ -38,16 +38,17 @@ const subtract(num) {
 }
 
 /**
- * reducer
+ * reducers/counter.js
  */
 // 根据action决定如何改变count的值
+import { ADD, SUBTRACT } from '../actions/count';
 
 // 初始状态
 const initialState = {
   count: 0
 }
 
-function countReducer(state = initialState, action) {
+export default function countReducer(state = initialState, action) {
   switch(action.type) {
     case ADD:
       return {
@@ -65,15 +66,17 @@ function countReducer(state = initialState, action) {
 }
 
 /**
- * store.js
+ * store
  * getState: 获取store的state
  * dispatch: 更新state
  * subscribe: 注册监听器
  */
 
 import { createStore } from 'redux'
-import count from './reducers'
-let store = createStore(todoApp)
+import counter from './reducers/counter'
+let store = createStore(counter, {
+  count: 0,
+})
 
 // 注册监听器， 返回一个注销监听器的函数
 const unsubscribe = store.subscribe(() => console.log(store.getState()))
