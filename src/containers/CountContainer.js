@@ -3,11 +3,12 @@ import CountWrap from '../components/CountWrap';
 import { add, subtract } from '../actions/count';
 import connect from '../react-redux/connect/connect'
 
+
 class CountContainer extends Component {
   render() {
     return (
       <div>
-        <CountWrap 
+        <CountWrap
           count={this.props.count}
           onAdd={() => this.props.dispatch(add())}
           onSubtract={() => this.props.dispatch(subtract())}
