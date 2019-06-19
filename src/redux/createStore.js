@@ -1,9 +1,15 @@
-export default function createStore(reducer, initState) {
+export default function createStore(reducer, preloadedState, enhancer) {
   let currentReducer = reducer
-  let currentState = initState
+  let currentState = preloadedState
   let currentListeners = []
   let nextListeners = currentListeners
   let isDispatching = false
+
+  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
+    enhancer = preloadedState
+    preloadedState = undefined
+    return enhancer(createStore)(reducer, preloadedState)
+  }
 
 
   // 拷贝监听器
