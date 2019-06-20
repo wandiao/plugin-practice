@@ -66,7 +66,6 @@ export default class Subscription {
     this.listeners.notify()
   }
   handleChangeWrapper = () => {
-    console.log('通知')
     if (this.onStateChange) {
       this.onStateChange()
     }
@@ -80,6 +79,11 @@ export default class Subscription {
     }
   }
   tryUnsubscribe() {
-    console.log('取消监听器')
+    if (this.unsubscribe) {
+      this.unsubscribe()
+      this.unsubscribe = null
+      this.listeners.clear()
+      this.listeners = nullListeners
+    }
   }
 }

@@ -5,7 +5,7 @@
 
 
 <div align="center">
-  <img src="http://chuantu.xyz/t6/702/1559808803x1709417317.png" />
+  <img src="https://wj-block.oss-cn-shenzhen.aliyuncs.com/395937-20160710165110983-595754985.png?Expires=1561019833&OSSAccessKeyId=TMP.AgETJHSH8YAOVmfWNStt2uJZIU0j_Drm_gB33dNftVnHWnYm1Nloly6nvhEQAAAwLAIUfdjM-PE183h-bdFXAQMmHv5A7CACFC9bQYJl_l8Eoln-Lr1u4whPGBYA&Signature=ry8el112%2BALvXQF%2FwdsF67HUlSU%3D" />
 </div>
 
 ### 用法
@@ -96,4 +96,5 @@ unsubscribe()
 - [x] createStore
 - [x] compose
 - [x] combineReducers
+- [x] applyMiddleware
 

@@ -1,7 +1,11 @@
 import compose from './compose';
 
 
-export default function applyMiddleware(middlewares) {
+/**
+ * 中间件扩展dispatch
+ * @param {*} middlewares 中间件
+ */
+export default function applyMiddleware(...middlewares) {
   return createStore => (...arg) => {
     const store = createStore(...arg)
     let dispatch = () => {

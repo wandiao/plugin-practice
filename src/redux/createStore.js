@@ -8,6 +8,12 @@ export default function createStore(reducer, preloadedState, enhancer) {
   if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
     enhancer = preloadedState
     preloadedState = undefined
+  }
+
+  if (enhancer) {
+    if (typeof enhancer !== 'function') {
+      throw new Error('增强enhaner必须为function')
+    }
     return enhancer(createStore)(reducer, preloadedState)
   }
 
