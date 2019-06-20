@@ -1,4 +1,4 @@
-import combineReducers from '../redux/combineReducers'
+import { combineReducers } from '../redux'
 
 import todoReducer from './todo'
 import countReducer from './counter'
