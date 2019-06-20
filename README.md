@@ -1,2 +1,3 @@
 - [x] redux
-- [ ] react-redux
+- [x] react-redux
+- [ ] react-router
