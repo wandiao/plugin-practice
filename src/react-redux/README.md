@@ -5,7 +5,7 @@
 `react-redux`是基于**容器组件和展示组件相分离**的开发思想。简单来说展示组件专注于应用的ui界面，不参与业务逻辑，通常被编写为函数式组件，所有的状态获取与变更都来源于props，比如说弹窗，侧边栏，列表组件。而容器组件专注于应用中数据是如何变化的，同时为展示组件提供数据和行为，拥有自己的状态，通常以class组件的形式存在， 比如说用户信息页，关注用户列表等包含业务的组件。在`react-redux`中可以通过`connect`函数生成。
 
 <div align="center">
-  <img src="http://chuantu.xyz/t6/702/1560222563x2918527082.png" />
+  <img src="https://wj-block.oss-cn-shenzhen.aliyuncs.com/WX20190611-110836.png" />
 </div>
 
 ### 用法
