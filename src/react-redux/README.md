@@ -114,5 +114,11 @@ ReactDOM.render(
 );
 ```
 
+## API
+
+- [x] Provider
+- [x] connect
+
+
 
 

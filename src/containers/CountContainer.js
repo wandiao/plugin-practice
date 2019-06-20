@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CountWrap from '../components/CountWrap';
 import { add, subtract } from '../actions/count';
-import connect from '../react-redux/connect/connect'
+import { connect } from '../react-redux'
 
 
 class CountContainer extends Component {

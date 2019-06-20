@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Todo from '../components/Todo';
 import { addTodo,toggleTodo } from '../actions/todo';
 
-import connect from '../react-redux/connect/connect'
+import { connect } from '../react-redux'
 
 
 class TodoContainer extends Component {
