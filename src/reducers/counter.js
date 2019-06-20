@@ -1,21 +1,13 @@
-import { ADD, SUBTRACT } from '../actions/count';
+import { ADD, SUBTRACT } from '../actions/constants';
 
-const initialState = {
-  count: 0
-}
+const initialState = 0
 
 export default function countReducer(state = initialState, action) {
   switch(action.type) {
     case ADD:
-      return {
-        ...state,
-        count: state.count + action.num
-      }
+      return state + action.num
     case SUBTRACT:
-      return {
-        ...state,
-        count: state.count - action.num
-      }
+      return state - action.num
     default:
       return state
   }

@@ -1,6 +1,4 @@
-export const ADD = 'ADD' // 增加
-export const SUBTRACT = 'SUBTRACT' // 减少
-
+import { ADD, SUBTRACT } from './constants'
 // action对象
 // {
 //   type: ADD,

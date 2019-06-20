@@ -91,3 +91,9 @@ unsubscribe()
 
 ```
 
+## API
+
+- [x] createStore
+- [x] compose
+- [x] combineReducers
+

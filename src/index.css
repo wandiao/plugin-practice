@@ -21,3 +21,18 @@ button {
   border-radius: 5px;
   margin-top: 10px;
 }
+
+.form-box {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 20px;
+}
+
+.form-box input {
+  margin-right: 20px;
+}
+
+.form-box button {
+  margin-top: 0;
+}

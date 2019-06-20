@@ -5,10 +5,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Provider from './react-redux/components/Provider';
 import createStore from './redux/createStore';
-import counter from './reducers/counter';
+import reducers from './reducers/index';
 
-const store = createStore(counter, {
-  count: 0
+const store = createStore(reducers, {
+  count: 0,
+  todos: [],
 })
 
 ReactDOM.render(
