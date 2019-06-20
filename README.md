@@ -1,2 +1,2 @@
-- [ ] redux
+- [x] redux
 - [ ] react-redux
