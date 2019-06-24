@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import  { Router, Route } from '@/react-router';
+import  { BrowserRouter as Router, Route } from '@/react-router-dom';
 import './App.css';
 import CountContainer from './containers/CountContainer';
 import TodoContainer from './containers/TodoContainer';
-import { createBrowserHistory } from 'history';
 
 import routerDemoRoutes from './pages/RouterDemo/routes'
 
-const history = createBrowserHistory()
 
 
 
@@ -21,7 +19,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <CountContainer />
           <TodoContainer />
-          <Router history={history}>
+          <Router>
             {/* react-router demo */}
             {
               routerDemoRoutes.map(c => (

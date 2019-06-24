@@ -9,10 +9,10 @@ export default [
   },
   {
     path: 'page2',
-    component: Page1,
+    component: Page2,
   },
   {
     path: 'page3',
-    component: Page1,
+    component: Page3,
   },
 ]

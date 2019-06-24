@@ -56,7 +56,7 @@ class Route extends Component {
 
 Route.propTypes = {
   children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-  component: PropTypes.element,
+  component: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
   exact: PropTypes.bool,
   location: PropTypes.object,
   path: PropTypes.oneOfType([
