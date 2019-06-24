@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from '@/react-redux'
+
 import Todo from '../components/Todo';
 import { addTodo,toggleTodo } from '../actions/todo';
 
-import { connect } from '../react-redux'
 
 
 class TodoContainer extends Component {

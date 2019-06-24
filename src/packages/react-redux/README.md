@@ -36,7 +36,7 @@ export default function CountWrap(props) {
 import React, { Component } from 'react'
 import CountWrap from '../components/CountWrap';
 import { add, subtract } from '../actions/count';
-import connect from '../react-redux/connect/connect'
+import { connect } from '@/react-redux'
 
 class CountContainer extends Component {
   render() {
@@ -98,7 +98,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Provider from './react-redux/components/Provider';
+import { Provider } from '@/react-redux';
 import createStore from './redux/createStore';
 import counter from './reducers/counter';
 

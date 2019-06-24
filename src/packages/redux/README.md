@@ -72,7 +72,7 @@ export default function countReducer(state = initialState, action) {
  * subscribe: 注册监听器
  */
 
-import { createStore } from 'redux'
+import { createStore } from '@/redux'
 import counter from './reducers/counter'
 let store = createStore(counter, {
   count: 0,
