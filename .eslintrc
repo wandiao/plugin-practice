@@ -5,7 +5,7 @@
   "rules": {
      "semi": [2, "never"],
      "no-self-compare": 0,
-     "jsx-a11y/anchor-has-content": 0,
+     "jsx-a11y/anchor-has-content": 0
   },
   "parser": "babel-eslint"
 }
