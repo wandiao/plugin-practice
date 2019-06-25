@@ -11,8 +11,8 @@ export default class index extends Component {
         <section>
           <h3>normal link</h3>
           <Link to='/router-demo/page1'>page1</Link>
-          <Link to='/router-demo/page2'>page2</Link>
-          <Link to='/router-demo/page3'>page3</Link>
+          <Link to={{ pathname: '/router-demo/page2' }}>page2</Link>
+          <Link to={location => ({ ...location, pathname: '/router-demo/page3' })}>page3</Link>
         </section>
       </div>
     )
