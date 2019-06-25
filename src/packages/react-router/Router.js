@@ -12,10 +12,27 @@ class Router extends Component {
       location: props.history.location
     }
     this._isMounted = false
+    this._pendingLocation = null
+    if (!props.staticContext) {
+      this.unlisten = props.history.listen(location => {
+        if (this._isMounted) {
+          this.setState({ location })
+        } else {
+          this._pendingLocation = location
+        }
+      })
+    }
   }
 
   componentDidMount() {
     this._isMounted = true
+    if (this._pendingLocation) {
+      this.setState({ location: this._pendingLocation })
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.unlisten) this.unlisten()
   }
 
   render() {

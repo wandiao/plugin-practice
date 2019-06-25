@@ -14,7 +14,6 @@ export default class index extends Component {
           <Link to='/router-demo/page2'>page2</Link>
           <Link to='/router-demo/page3'>page3</Link>
         </section>
-        
       </div>
     )
   }
