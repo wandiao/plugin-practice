@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import RouterDemo from '../index'
 
 export default class index extends Component {
   render() {
     return (
-      <RouterDemo>
-        page1
-      </RouterDemo>
+      <h1>
+        404
+      </h1>
     )
   }
 }

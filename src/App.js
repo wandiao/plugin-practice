@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import  { BrowserRouter as Router, Route, Link } from '@/react-router-dom'
+import  { BrowserRouter as Router, Route, Link, Switch } from '@/react-router-dom'
+
 import './App.scss'
 
+import NoMatch from './pages/NoMatch'
 import routes from './routes'
 
 
@@ -14,13 +16,17 @@ class App extends Component {
             <nav>
               <Link to='/redux-demo'>redux-demo</Link>
               <Link to='/router-demo'>router-demo</Link>
+              <Link to='/sakldfjlkjflqwk/qlwejkqlwje'>no match page</Link>
             </nav>
             {/* demo */}
-            {
-              routes.map(c => (
-                <Route key={c.path} path={c.path} component={c.component}></Route>
-              ))
-            }
+            <Switch>
+              {
+                routes.map(c => (
+                  <Route exact={c.exact} key={c.path} path={c.path} component={c.component}></Route>
+                ))
+              }
+              <Route component={NoMatch} />
+            </Switch>
           </Router>
         
       </div>
