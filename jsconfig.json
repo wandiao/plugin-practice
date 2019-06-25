@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
+    "target": "es6",
     "paths": {
-      "@/*": ["./src/packages/*"],
+      "@/*": ["./packages/*"]
     }
   },
   "exclude": ["node_modules", "dist"]
