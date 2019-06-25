@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from '@/react-redux';
-import { createStore, applyMiddleware } from '@/redux';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from '@/react-redux'
+import { createStore, applyMiddleware } from '@/redux'
 
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './index.css'
+import App from './App'
+import * as serviceWorker from './serviceWorker'
 
 
 
-import reducers from './reducers/index';
+import reducers from './reducers/index'
 import middleware1 from './utils/middleware1'
 import middleware2 from './utils/middleware2'
 
@@ -23,11 +23,11 @@ ReactDOM.render(
     <App />
   </Provider>,
   document.getElementById('root')
-);
+)
 
 
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.unregister()

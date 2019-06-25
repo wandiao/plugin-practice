@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import  { BrowserRouter as Router, Route } from '@/react-router-dom';
-import './App.css';
-import CountContainer from './containers/CountContainer';
-import TodoContainer from './containers/TodoContainer';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import  { BrowserRouter as Router, Route } from '@/react-router-dom'
+import './App.css'
+import CountContainer from './containers/CountContainer'
+import TodoContainer from './containers/TodoContainer'
 
 import routerDemoRoutes from './pages/RouterDemo/routes'
-
-
 
 
 
@@ -29,8 +27,8 @@ class App extends Component {
           </Router>
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

@@ -1,4 +1,4 @@
-import { ADD, SUBTRACT } from '../actions/constants';
+import { ADD, SUBTRACT } from '../actions/constants'
 
 const initialState = 0
 

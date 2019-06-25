@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from "prop-types";
-import RouterContext from './RouterContext';
-import matchPath from './matchPath';
+import React, { Component } from 'react'
+import PropTypes from "prop-types"
+import RouterContext from './RouterContext'
+import matchPath from './matchPath'
 
 function isEmptyChildren(children) {
-  return React.Children.count(children) === 0;
+  return React.Children.count(children) === 0
 }
 
 class Route extends Component {
@@ -13,20 +13,20 @@ class Route extends Component {
       <RouterContext.Consumer>
         {
           context => {
-            const location = this.props.location || context.location;
+            const location = this.props.location || context.location
             const match = this.props.computedMatch
               ? this.props.computedMatch
               : this.props.path
                 ? matchPath(location.pathname, this.props)
-                : context.match;
+                : context.match
 
-            const props = { ...context, location, match };
-            let { children, component, render } = this.props;
+            const props = { ...context, location, match }
+            let { children, component, render } = this.props
 
             if (typeof children === "function") {
-              children = children(props);
+              children = children(props)
               if (children === undefined) {
-                const { path } = this.props;
+                const { path } = this.props
                 console.warn(`<Route${path ? ` path="${path}"` : ""}>:children prop应该返回一个react元素或者null, 但是返回了undefined`)
                 children = null
               }
@@ -66,6 +66,6 @@ Route.propTypes = {
   render: PropTypes.func,
   sensitive: PropTypes.bool,
   strict: PropTypes.bool
-};
+}
 
 export default Route

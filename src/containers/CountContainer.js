@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from '@/react-redux'
 
-import CountWrap from '../components/CountWrap';
-import { add, subtract } from '../actions/count';
+import CountWrap from '../components/CountWrap'
+import { add, subtract } from '../actions/count'
 
 
 class CountContainer extends Component {
@@ -11,7 +11,7 @@ class CountContainer extends Component {
       <div>
         <CountWrap
           count={this.props.count}
-          onAdd={() => this.props.dispatch(add())}
+          onAdd={(e) => {console.log(e); this.props.dispatch(add())}}
           onSubtract={() => this.props.dispatch(subtract())}
         >
 

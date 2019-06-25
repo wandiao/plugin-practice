@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from "prop-types";
+import React, { Component } from 'react'
+import PropTypes from "prop-types"
 import RouterContext from './RouterContext'
 
 class Router extends Component {
   static computeRootMatch(pathname) {
-    return { path: "/", url: "/", params: {}, isExact: pathname === "/" };
+    return { path: "/", url: "/", params: {}, isExact: pathname === "/" }
   }
   constructor(props) {
     super(props)
@@ -37,6 +37,6 @@ Router.propTypes = {
   children: PropTypes.node,
   history: PropTypes.object.isRequired,
   staticContext: PropTypes.object
-};
+}
 
 export default Router

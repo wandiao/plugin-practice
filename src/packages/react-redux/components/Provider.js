@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { MainContext } from './Context'
-import Subscription from '../utils/Subscription';
+import Subscription from '../utils/Subscription'
 
 
 class Provider extends Component {
