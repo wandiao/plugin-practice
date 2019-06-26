@@ -13,6 +13,7 @@ class Router extends Component {
     }
     this._isMounted = false
     this._pendingLocation = null
+    // 静态路由不会监听路由变化
     if (!props.staticContext) {
       this.unlisten = props.history.listen(location => {
         if (this._isMounted) {
