@@ -36,6 +36,8 @@
     "jest-environment-jsdom-fourteen": "0.1.0",
     "jest-resolve": "24.7.1",
     "jest-watch-typeahead": "0.3.0",
+    "koa": "^2.7.0",
+    "koa-send": "^5.0.0",
     "mini-css-extract-plugin": "0.5.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "path-to-regexp": "^3.0.0",
@@ -64,7 +66,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "build:server": "cross-env NODE_ENV=production webpack --config config/webpack.ssr.js --watch",
+    "server": "nodemon dist/index.ssr.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -126,13 +130,12 @@
       "jest-watch-typeahead/testname"
     ]
   },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "node-sass": "^4.12.0",
-    "path-to-regexp": "^3.0.0"
+    "path-to-regexp": "^3.0.0",
+    "webpack-cli": "^3.3.5",
+    "webpack-merge": "^4.2.1",
+    "webpack-node-externals": "^1.7.2"
   }
 }
