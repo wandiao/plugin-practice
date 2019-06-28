@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from '@/react-redux'
+import { BrowserRouter } from '@/react-router-dom'
 import { createStore, applyMiddleware } from '@/redux'
 
 import './index.css'
@@ -18,9 +19,11 @@ const store = createStore(reducers, {
   todos: [],
 }, applyMiddleware(middleware1, middleware2))
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 )

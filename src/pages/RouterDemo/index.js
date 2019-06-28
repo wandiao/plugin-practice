@@ -16,6 +16,7 @@ export default class index extends Component {
           <Link to='/router-demo/page4'>Redirect</Link>
           <Link to='/router-demo/page5'>withRouter</Link>
           <Link to='/router-demo/page6'>Prompt</Link>
+          <Link to='/router-demo/page7'>ssr</Link>
         </section>
         {this.props.children}
       </div>
