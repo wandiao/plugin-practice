@@ -5,6 +5,7 @@ import Page4 from './Page4'
 import Page5 from './Page5'
 import Page6 from './Page6'
 import Page7 from './Page7'
+import Page8 from './Page8'
 import Index from './index'
 
 export default [
@@ -46,6 +47,11 @@ export default [
   {
     path: '/router-demo/page7',
     component: Page7,
+    exact: true,
+  },
+  {
+    path: '/router-demo/page8',
+    component: Page8,
     exact: true,
   },
 ]

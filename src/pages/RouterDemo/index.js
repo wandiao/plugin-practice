@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from '@/react-router-dom'
+import { Link, NavLink } from '@/react-router-dom'
 
 import './index.scss'
 
@@ -17,6 +17,7 @@ export default class index extends Component {
           <Link to='/router-demo/page5'>withRouter</Link>
           <Link to='/router-demo/page6'>Prompt</Link>
           <Link to='/router-demo/page7'>ssr</Link>
+          <NavLink to='/router-demo/page8'>navLink</NavLink>
         </section>
         {this.props.children}
       </div>
