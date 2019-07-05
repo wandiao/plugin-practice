@@ -1,3 +1,4 @@
 - [x] redux
 - [x] react-redux
-- [ ] react-router
+- [x] react-router
+- [x] react-router-dom
