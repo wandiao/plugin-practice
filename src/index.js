@@ -19,7 +19,7 @@ const store = createStore(reducers, {
   todos: [],
 }, applyMiddleware(middleware1, middleware2))
 
-ReactDOM.hydrate(
+ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <App />
