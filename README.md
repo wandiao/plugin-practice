@@ -2,3 +2,4 @@
 - [x] react-redux
 - [x] react-router
 - [x] react-router-dom
+- [ ] history
