@@ -13,6 +13,7 @@ class App extends Component {
         <nav>
           <Link to="/redux-demo">redux-demo</Link>
           <Link to="/router-demo">router-demo</Link>
+          <Link to="/history-demo">history-demo</Link>
           <Link to="/sakldfjlkjflqwk/qlwejkqlwje">no match page</Link>
           <div>{this.props.initData && this.props.initData.foo}</div>
         </nav>

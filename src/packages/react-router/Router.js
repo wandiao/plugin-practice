@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from "prop-types"
 import RouterContext from './RouterContext'
 
+
 class Router extends Component {
   static computeRootMatch(pathname) {
     return { path: "/", url: "/", params: {}, isExact: pathname === "/" }
