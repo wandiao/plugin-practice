@@ -56,6 +56,14 @@ export function hasBasename(path, prefix) {
 }
 
 /**
+ * 去掉url前面的"/"
+ * @param {*} path 
+ */
+export function stripLeadingSlash(path) {
+  return path.charAt(0) === '/' ? path.substr(1) : path
+}
+
+/**
  * 去除url中的指定前缀
  * @param {*} path 
  * @param {*} prefix 
