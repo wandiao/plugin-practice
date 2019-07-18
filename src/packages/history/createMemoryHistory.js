@@ -1,5 +1,3 @@
-import warning from 'tiny-warning'
-
 import { createPath } from './PathUtils'
 import { createLocation } from './LocationUtils'
 import createTransitionManager from './createTransitionManager'
