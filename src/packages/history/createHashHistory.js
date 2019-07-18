@@ -57,8 +57,8 @@ function createHashHistory(props = {}) {
   const basename = props.basename
     ? stripTrailingSlash(addLeadingSlash(props.basename))
     : ''
-  const initialLocation = getDOMLocation()
   const { encodePath, decodePath } = HashPathCoders[hashType]
+  const initialLocation = getDOMLocation()
 
   const transitionManager = createTransitionManager()
 
@@ -185,7 +185,7 @@ function createHashHistory(props = {}) {
 
           setState({ action, location })
         } else {
-          console.err('同样的path不能push')
+          console.error('同样的path不能push')
 
           setState()
         }
